@@ -1,7 +1,8 @@
 from flask_restful import Resource, reqparse
 from models.usuarios import *
 from flask_jwt_extended import create_access_token
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt
+from blacklist import BLACKLIST
 import hmac
 str_to_bytes = lambda s: s.encode("utf-8") if isinstance(s, str) else s
 safe_str_cmp = lambda a, b: hmac.compare_digest(str_to_bytes(a), str_to_bytes(b))
@@ -56,3 +57,10 @@ class UserLogin(Resource):
             token_de_acesso = create_access_token(identity=user.user_id)
             return {'access_token': token_de_acesso}, 200 #ok
         return {'message': 'The username or passwork is invalid.'}, 401 #Unauthorized
+    
+class UserLogout(Resource):
+    @jwt_required()
+    def post(self):
+        jwt_id = get_jwt()['jti'] #JWT Token Identifier
+        BLACKLIST.add(jwt_id)
+        return {'message': 'Logged out successfully!'}, 200 #OK
