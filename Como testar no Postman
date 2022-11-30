@@ -1,0 +1,8 @@
+No Headers - em todos
+Content-Type = application/json
+
+Quando é necessário autorização via token, criar a chave no Headers
+Authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2OTc3MzM5OSwianRpIjoiMGIzNjk0MGEtMDMyNS00NDQ3LWE2ZTktYmQ0MDAzMjgzOWY0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjY5NzczMzk5LCJleHAiOjE2Njk3NzQyOTl9.TULCiQwBdN6FeiIY2U7bLkR1uavpqE383zTOBrmoIo0
+
+Onde o token colocado depois da palavra Bearer é gerado no /login
+
