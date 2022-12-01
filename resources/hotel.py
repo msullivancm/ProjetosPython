@@ -1,10 +1,48 @@
 from flask_restful import Resource, reqparse
 from models.hotel import *
 from flask_jwt_extended import jwt_required
+from flask import request
+
+#normalizar path para passagem de parâmetros corretamente
+def normaliza_path_params(cidade=None,
+                          estrelas_min = 0,
+                          estrelas_max = 5,
+                          diaria_min = 0,
+                          diaria_max = 10000,
+                          limit = 50,
+                          offset = 0, **dados):
+    if cidade: 
+        return {
+            'estrelas_min': estrelas_min, 
+            'estrelas_max': estrelas_max, 
+            'diaria_min': diaria_min, 
+            'diaria_max': diaria_max, 
+            'cidade': cidade, 
+            'limit': limit, 
+            'offset': offset
+        } #se existir cidade retorna tudo
+    return {
+            'estrelas_min': estrelas_min, 
+            'estrelas_max': estrelas_max, 
+            'diaria_min': diaria_min, 
+            'diaria_max': diaria_max, 
+            'limit': limit, 
+            'offset': offset
+        } #se não existir cidade retorna tudo menos cidade
+
+#implementação de passagem de parametro pelo path
+#path /hoteis?cidade=Rio de Janeiro&estrelas_min=4&estrelas_max=5&diaria_min=100&diaria_max=400&limit=10&offset=0
+path_params = reqparse.RequestParser()
+path_params.add_argument('cidade', type=str)
+path_params.add_argument('estrelas_min', type=float)
+path_params.add_argument('estrelas_max', type=float)
+path_params.add_argument('diaria_min', type=float)
+path_params.add_argument('diaria_max', type=float)
+path_params.add_argument('limit', type=float) #paginação
+path_params.add_argument('offset', type=float) #quantidade de elementos que desejamos pular, complemento da paginação
 
 class Hoteis(Resource):
     def get(self):
-        #select * from tabelahoteis apresenta em lista com cada item convertido para json
         return {'hoteis': [hotel.json() for hotel in HotelModel.query.all()] }
     
 class Hotel(Resource):

@@ -24,7 +24,10 @@ class HotelModel(banco.Model):
             'diaria': self.diaria, 
             'cidade': self.cidade
         }
-
+    
+   #def get(*dados):
+   #     return {'hoteis': [hotel.json() for hotel in HotelModel.query.all()] }
+    
     @classmethod
     def find_hotel(cls, hotel_id):
         hotel = cls.query.filter_by(hotel_id=hotel_id).first() 
