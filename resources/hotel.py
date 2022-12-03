@@ -3,18 +3,9 @@ from models.hotel import *
 from flask_jwt_extended import jwt_required
 from flask import request
 
-#implementação de passagem de parametro pelo path
-#path /hoteis?cidade=Rio de Janeiro&estrelas_min=4&estrelas_max=5&diaria_min=100&diaria_max=400&limit=10&offset=0
-path_params = reqparse.RequestParser()
-path_params.add_argument('cidade', type=str)
-path_params.add_argument('estrelas_min', type=float)
-path_params.add_argument('estrelas_max', type=float)
-path_params.add_argument('diaria_min', type=float)
-path_params.add_argument('diaria_max', type=float)
-path_params.add_argument('limit', type=float) #paginação
-path_params.add_argument('offset', type=float) #quantidade de elementos que desejamos pular, complemento da paginação
-
 class Hoteis(Resource):
+    #implementação de passagem de parametro pelo path
+    #path /hoteis?cidade=Rio de Janeiro&estrelas_min=4&estrelas_max=5&diaria_min=100&diaria_max=400&limit=10&offset=0
     query_params = reqparse.RequestParser()
     query_params.add_argument("cidade", type=str, default="", location="args")
     query_params.add_argument("estrelas_min", type=float, default=0, location="args")
