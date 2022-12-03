@@ -3,33 +3,6 @@ from models.hotel import *
 from flask_jwt_extended import jwt_required
 from flask import request
 
-#normalizar path para passagem de parâmetros corretamente
-def normaliza_path_params(cidade=None,
-                          estrelas_min = 0,
-                          estrelas_max = 5,
-                          diaria_min = 0,
-                          diaria_max = 10000,
-                          limit = 50,
-                          offset = 0, **dados):
-    if cidade: 
-        return {
-            'estrelas_min': estrelas_min, 
-            'estrelas_max': estrelas_max, 
-            'diaria_min': diaria_min, 
-            'diaria_max': diaria_max, 
-            'cidade': cidade, 
-            'limit': limit, 
-            'offset': offset
-        } #se existir cidade retorna tudo
-    return {
-            'estrelas_min': estrelas_min, 
-            'estrelas_max': estrelas_max, 
-            'diaria_min': diaria_min, 
-            'diaria_max': diaria_max, 
-            'limit': limit, 
-            'offset': offset
-        } #se não existir cidade retorna tudo menos cidade
-
 #implementação de passagem de parametro pelo path
 #path /hoteis?cidade=Rio de Janeiro&estrelas_min=4&estrelas_max=5&diaria_min=100&diaria_max=400&limit=10&offset=0
 path_params = reqparse.RequestParser()
@@ -42,9 +15,39 @@ path_params.add_argument('limit', type=float) #paginação
 path_params.add_argument('offset', type=float) #quantidade de elementos que desejamos pular, complemento da paginação
 
 class Hoteis(Resource):
-    def get(self):
-        return {'hoteis': [hotel.json() for hotel in HotelModel.query.all()] }
+    query_params = reqparse.RequestParser()
+    query_params.add_argument("cidade", type=str, default="", location="args")
+    query_params.add_argument("estrelas_min", type=float, default=0, location="args")
+    query_params.add_argument("estrelas_max", type=float, default=5, location="args")
+    query_params.add_argument("diaria_min", type=float, default=0, location="args")
+    query_params.add_argument("diaria_max", type=float, default=10000, location="args")
+    query_params.add_argument("limit", type=float, default=10, location="args")
+    query_params.add_argument("offset", type=float, default=0, location="args")
     
+    def get(self):
+        filters = Hoteis.query_params.parse_args()
+ 
+        query = HotelModel.query
+ 
+        if filters["cidade"]:
+            query = query.filter(HotelModel.cidade == filters["cidade"])
+        elif filters["estrelas_min"]:
+            query = query.filter(HotelModel.estrelas >= filters["estrelas_min"])
+        elif filters["estrelas_max"]:
+            query = query.filter(HotelModel.estrelas <= filters["estrelas_max"])
+        elif filters["diaria_min"]:
+            query = query.filter(HotelModel.diaria >= filters["diaria_min"])
+        elif filters["diaria_max"]:
+            query = query.filter(HotelModel.diaria <= filters["diaria_max"])
+        elif filters["limit"]:
+            query = query.filter(HotelModel.diaria <= filters["limit"])
+        elif filters["offset"]:
+            query = query.filter(HotelModel.diaria <= filters["offset"])
+        else: 
+            return {'hoteis': [hotel.json() for hotel in HotelModel.query.all()] }
+ 
+        return {"hoteis": [hotel.json() for hotel in query]}
+
 class Hotel(Resource):
     argumentos = reqparse.RequestParser()
     argumentos.add_argument('nome', type=str, required=True, help="The field 'nome' cannot left blank.")
@@ -102,4 +105,4 @@ class Hotel(Resource):
                 return {'message': 'An error ocurred trying to delete hotel.'}, 500 #Internal server error
             return {'message': 'Hotel deletado.'}
         return {'message': 'Hotel não encontrado.'}
-        
+
