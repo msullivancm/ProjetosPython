@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from models.hotel import *
+from models.site import *
 from flask_jwt_extended import jwt_required
 from flask import request
 
@@ -63,6 +64,9 @@ class Hotel(Resource):
             return {"message": "Hotel id '{}' already exists.".format(hotel_id)}, 400 # bad request
         dados = Hotel.argumentos.parse_args()
         hotel = HotelModel(hotel_id, **dados)
+        
+        if not SiteModel.find_by_id(dados['site_id']):
+            return {'message': 'The hotel must be assossiated to site'}, 400 # bad request
         try:
             hotel.save_hotel() #salva o hotel no banco de dados
         except:

@@ -16,6 +16,13 @@ class SiteModel(banco.Model):
             'url': self.url,
             'hoteis': [hotel.json() for hotel in self.hoteis]
         }
+
+    @classmethod
+    def find_by_id(cls, site_id):
+        site = cls.query.filter_by(site_id=site_id).first() 
+        if site:
+            return site
+        return None
     
     @classmethod
     def find_site(cls, url):
@@ -32,5 +39,8 @@ class SiteModel(banco.Model):
         self.url = nome
     
     def delete_site(self):
+        #deletando todos os hoteis associados ao site
+        [hotel.delete_hotel() for hotel in self.hoteis]
+        #deletando site propriamente dido
         banco.session.delete(self)
         banco.session.commit()
