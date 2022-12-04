@@ -45,6 +45,7 @@ class Hotel(Resource):
     argumentos.add_argument('estrelas', type=float, required=True, help="The field 'estrelas' cannot left blank.")
     argumentos.add_argument('diaria')
     argumentos.add_argument('cidade')
+    argumentos.add_argument('site_id', type=int, required=True, help="Every hotel needs linked with site.")
         
     #esta é uma função da classe, por isso não passa o self. 
     # Se passasse o self procuraria só no registro atual e não no conjunto de registros da classe.
