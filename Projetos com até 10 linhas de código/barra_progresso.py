@@ -1,3 +1,5 @@
+#conda install -c conda-forge tqdm
+#conda install -c conda-forge requests
 from tqdm import tqdm
 import time
 
