@@ -1,7 +1,7 @@
 #pip install opencv-python
 import cv2 
 
-webcam = cv2.VideoCapture(0)
+webcam = cv2.VideoCapture()
 
 try:
     if webcam.isOpened():
