@@ -1,27 +1,69 @@
-import kivy
-
-from kivy.app import App
+from functools import partial
 from kivy.uix.button import Button
-from kivy.uix.label import Label
+from kivy.uix.dropdown import DropDown
+from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-class MyApp(App):
+
+class TestApp(App):
+
+    def create_dropdown(self, text, options):
+        selection_button = Button(text=text)
+        drpdn = DropDown()
+        for o in options:
+            btn = Button(text=o, size_hint_y=None, height=44)
+            btn.bind(on_release=partial(self.change_select,
+                                        selection_button,
+                                        btn.text
+                                        )
+                     )
+            btn.bind(on_release=drpdn.dismiss)
+            drpdn.add_widget(btn)
+        selection_button.bind(on_release=partial(self.open_dropdown,
+                                                 selection_button,
+                                                 drpdn
+                                                 )
+                              )
+        return selection_button
+
+    def create_dropdown2(self, text, options):
+        selection_button = Button(text=text)
+        drpdn = DropDown()
+        for o in options:
+            btn = Button(text=o, size_hint_y=None, height=44)
+            btn.bind(on_release=partial(self.change_select,
+                                        selection_button,
+                                        btn.text
+                                        )
+                     )
+            btn.bind(on_release=drpdn.dismiss)
+            drpdn.add_widget(btn)
+        selection_button.bind(on_release=drpdn.open)
+        return selection_button
+
+    def change_select(self, wid, text, *largs):
+        wid.text = text
+
+    def open_dropdown(self, wid, drpdn, *largs):
+        drpdn.open(wid)
+
     def build(self):
-        layout = BoxLayout(orientation='vertical',
-                           padding=[40, 20, 40, 20])
+        root = BoxLayout(orientation="vertical")
 
-        layout.add_widget(Label(text='TESTE'))
+        for _ in range(3):
+            root.add_widget(self.create_dropdown("Works",
+                                                 ["yes", "no"]
+                                                 )
+                            )
 
-        btn1 = Button(text='clique aqui')
-        btn1.bind(on_press=self.tt())
-        layout.add_widget(btn1)
+        for _ in range(4):
+            root.add_widget(self.create_dropdown2("Does not work",
+                                                  ["yes", "no"]
+                                                  )
+                            )
 
-        return layout
+        return root
 
-    def tt(self):
-        t = "teste"
-        print(t)
-        return t
 
-if __name__ in ('__android__', '__main__'):
-    MyApp().run()
+if __name__ == '__main__':
+    TestApp().run()
