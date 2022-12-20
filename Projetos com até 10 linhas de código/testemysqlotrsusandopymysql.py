@@ -5,7 +5,7 @@ def con_banco():
     db = pymysql.connect(
         host='ferroport.managed-otrs.com',
         user='ferroport_ro',
-        passwd='EeGh7heing',
+        passwd='senha',
         db='otrs',
         ssl_ca='C:/OTRS/ferroport-ca-cert.pem',
         ssl_key='C:/OTRS/ferroport-client-key.pem',
