@@ -13,12 +13,12 @@ db_connection = create_engine(db_connection_str, connect_args=db_ssl_args)'''
 query = '''SELECT
 	t.TN AS 'Numero do Ticket',
 	ts.name Status,
-		t.TITLE AS Titulo,
-		q.name AS Fila,
-		t.CREATE_TIME AS Dt_Criacao_Ticket,
-		t.customer_id AS username,
-		CONCAT(u.first_name, ' ', u.last_name) AS Analista,
-		case
+	t.TITLE AS Titulo,
+	q.name AS Fila,
+	t.CREATE_TIME AS Dt_Criacao_Ticket,
+	t.customer_id AS username,
+	CONCAT(u.first_name, ' ', u.last_name) AS Analista,
+	case
 			(
 		select
 				max(sv2.vote_value)
@@ -35,7 +35,7 @@ query = '''SELECT
 		when 'No' then 'NAO'
 		else 'NÃO APURADO'
 	end as Resolvido,
-		case
+	case
 			(
 		select
 				max(sv2.vote_value)
@@ -76,7 +76,7 @@ query = '''SELECT
 		where 
 			ticket.id = t.id
 			and ticket_history.state_id = 13
-	) as Tempo_Decorrido,	
+	) as Tempo_Decorrido,
 		(
 	select
 			case
@@ -107,13 +107,11 @@ left join ticket_history th on
 		th.id = t.id
 left join ticket_state ts on 
 	ts.id = t.ticket_state_id 
-where t.create_time >= CONCAT( year(now()), '-01-01' )
-order by
-	t.create_time desc'''
+where t.create_time >= CONCAT( year(now()), '-01-01' )'''
 
 df = pd.read_sql(query, con=db_connection)
 
 print(df)
 
 #Gera tabela em excel com conteudo da query
-df.to_excel('otrspesquisa.xlsx', index=False, header=df.columns)
+df.to_excel('otrschamados.xlsx', index=False, header=df.columns)
