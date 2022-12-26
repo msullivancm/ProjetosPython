@@ -1,0 +1,72 @@
+Passos manuais
+1 - Clicar e digitar o usuário
+2 - Clicar e digitar a senha
+3 - Clicar em Entrar
+4 - Ler cada linha da lista de produtos
+	1 - Clicar e digitar produtos
+	2 - clicar e digitar quantidade
+	3 - clicar em registrar
+
+Instalar pré-requisitos do Python (ele já deve estar instalado)
+pip3 install pyautogui pillow mouseinfo
+
+Entrar no python e executar 
+from mouseinfo import mouseinfo
+mouseInfo()
+
+Abrirá a tela do Mouseinfo
+	desmarcar a opão 3 Sec Button Delay
+	Então posicionar o mouse sobre os campos que se quer gravar as posições e teclar F6 para os campos usuário, senha e o botão Entrar
+	Então copie as coordenadas geradas no Mouseinfo para o código python de automação
+Obs.: Se precisar cancelar a movimentação do mouse, basta jogar o cursor para o canto superior esquerdo da tela rapidamente.
+	
+No VSCode
+#montar o script para captura, escrita e execução
+import pyautogui
+from time import sleep
+import subprocess as sub
+
+# Passos manuais
+# Abrir o programa
+sub.Popen('app.exe',shell=True)
+# 1 - Clicar e digitar o usuário
+pyautogui.click(945,539,duration=1)
+pyautogui.write('jhonatan')
+# 2 - Clicar e digitar a senha
+pyautogui.click(945,571)
+pyautogui.write('123456')
+# 3 - Clicar em Entrar
+pyautogui.click(844,606)
+# 4 - Ler cada linha da lista de produtos
+listaProdutos = []
+with open('produtos.txt','r') as arquivo:
+    for linha in arquivo:
+        produto = linha.split(',')[0]
+        quantidade = linha.split(',')[1]
+        preco = linha.split(',')[2]
+        
+        pyautogui.click(598,526) 
+        pyautogui.write(produto) 
+        pyautogui.click(598,559)
+        pyautogui.write(quantidade)
+        pyautogui.click(595,589)
+        pyautogui.write(preco)
+        pyautogui.click(495,787,duration=1) 
+        sleep(1)
+# 	1 - Clicar e digitar produtos
+# 	2 - clicar e digitar quantidade
+# 	3 - clicar em registrar
+# Coordenadas
+# 945,539 login
+# 945,571 senha
+# 844,606 entrar
+# 598,526 Produto
+# 598,559 Quantidade
+# 595,589 Preço
+# 495,787 Registrar
+
+Obs.: Podemos utilizar a biblioteca subprocess
+import subprocess as sub
+
+sub.Popen('app.exe',shell=True) #executa o programa externo como um processo filho e continua o código
+sub.all('app.exe',shell=True) #executa o programa externo e só passa para próxima linha de código quando este é finalizado.
