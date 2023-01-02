@@ -11,7 +11,7 @@ import requests
 lista_ceps = []
 ceps = []
 
-with open('Projetos com até 10 linhas de código\ceps.txt', 'r') as arquivo:
+with open('ceps.txt', 'r') as arquivo:
     arquivo_lido = arquivo.read()
 lista_ceps = arquivo_lido.split('\n')
 
