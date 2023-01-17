@@ -1,3 +1,22 @@
+'''Web Scraping de páginas de restaurantes com beautifulsoup
+Publicado: Ontem Propostas: 9
+Preciso desenvolver um script em python que a partir do link de um restaurante
+no ifood extraia um json com informações sobre os produtos e sobre os adicionais dele. 
+Preciso saber sobre o produto o nome, descrição e preço dele, os adicionais do produto, 
+o preço de cada uma das opções do adicional, se ele é de escolha única, 
+múltipla ou somável, qual é a quantidade mínima e máxima de seleções.
+
+https://www.ifood.com.br/delivery/campos-dos-goytacazes-rj/mcdonalds---av-dr-nilo-pecanha-cap-parque-santo-amaro/d68ad59d-4d3c-4916-9a02-77c3c976ae5f
+
+
+
+Categoria: TI e Programação
+Subcategoria: Data Science
+Tamanho do projeto: Pequeño
+Isso é um projeto ou uma posição de trabalho?: Um projeto
+Disponibilidade requerida: Conforme necessário
+colapsar'''
+
 '''# instalar https://visualstudio.microsoft.com/pt-br/visual-cpp-build-tools/
 #no instalador do visual studio, selecionar o componente MSVC 14 e instalar
 from bs4 import BeautifulSoup as bs 
@@ -14,19 +33,40 @@ dom = etree.HTML(str(soup))
 print(dom.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "titleColumn", " " ))]'))
 '''
 
+# Import Module
 from bs4 import BeautifulSoup
-from lxml import etree
 import requests
+from lxml import etree
 
+# Website URL
+URL = 'https://www.airbnb.com.br/'
 
-URL = "https://en.wikipedia.org/wiki/Nike,_Inc."
+# class list set
+class_list = set()
 
-HEADERS = ({'User-Agent':
-			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 \
-			(KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',\
-			'Accept-Language': 'en-US, en;q=0.5'})
+# Page content from Website URL
+page = requests.get( URL )
 
-webpage = requests.get(URL, headers=HEADERS)
-soup = BeautifulSoup(webpage.content, "html.parser")
+# parse html content
+soup = BeautifulSoup( page.content , 'html.parser')
+
+# get all tags
+tags = {tag.name for tag in soup.find_all()}
+
+# iterate all tags
+for tag in tags:
+
+	# find all element of tag
+	for i in soup.find_all( tag ):
+
+		# if tag has attribute of class
+		if i.has_attr( "class" ):
+
+			if len( i['class'] ) != 0:
+				print(i['class'])
+				class_list.add(" ".join( i['class']))
+
+#print( class_list )
+
 dom = etree.HTML(str(soup))
-print(dom.xpath('//*[@id="firstHeading"]')[0].text)
+print(dom.xpath(" 	//a[@class='bn2bl2p dir dir-ltr']"))
