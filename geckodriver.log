@@ -1,0 +1,109 @@
+1674070723483	geckodriver	INFO	Listening on 127.0.0.1:49673
+1674070797300	geckodriver	INFO	Listening on 127.0.0.1:49839
+1674070946057	geckodriver	INFO	Listening on 127.0.0.1:49905
+1674070949090	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileegGBEf"
+1674070949717	Marionette	INFO	Marionette enabled
+1674070949727	Marionette	INFO	Listening on port 49924
+Read port: 49924
+Read port: 49924
+1674070951124	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileegGBEf\\search.json.mozlz4", (void 0)))
+1674070988348	geckodriver	INFO	Listening on 127.0.0.1:49969
+1674070991396	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilemTZUBV"
+1674070991814	Marionette	INFO	Marionette enabled
+1674070991819	Marionette	INFO	Listening on port 49984
+Read port: 49984
+1674070992008	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilemTZUBV\\search.json.mozlz4", (void 0)))
+1674071012990	geckodriver	INFO	Listening on 127.0.0.1:50180
+1674071016020	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileBiQ1Un"
+1674071016471	Marionette	INFO	Marionette enabled
+1674071016477	Marionette	INFO	Listening on port 50198
+Read port: 50198
+1674071016668	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileBiQ1Un\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://c13d1807-b89c-44de-bef7-7739e9867d76/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://c13d1807-b89c-44de-bef7-7739e9867d76/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071045521	Marionette	INFO	Stopped listening on port 50198
+1674071385496	geckodriver	INFO	Listening on 127.0.0.1:50619
+1674071388517	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilepY8ToY"
+1674071389002	Marionette	INFO	Marionette enabled
+1674071389010	Marionette	INFO	Listening on port 50636
+Read port: 50636
+1674071389193	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilepY8ToY\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://97c06d18-a7ae-4dcb-b205-e9e8d14caa15/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://97c06d18-a7ae-4dcb-b205-e9e8d14caa15/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071439691	geckodriver	INFO	Listening on 127.0.0.1:50692
+1674071442767	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilejV3ntL"
+1674071443296	Marionette	INFO	Marionette enabled
+1674071443303	Marionette	INFO	Listening on port 50707
+Read port: 50707
+1674071443505	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilejV3ntL\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://4c43d2e5-74e7-4cca-8ffe-a2da81ec40a5/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://4c43d2e5-74e7-4cca-8ffe-a2da81ec40a5/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071462977	geckodriver	INFO	Listening on 127.0.0.1:50754
+1674071466030	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilej96itc"
+1674071466501	Marionette	INFO	Marionette enabled
+1674071466507	Marionette	INFO	Listening on port 50771
+Read port: 50771
+1674071466726	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofilej96itc\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://c7dfbd92-27c7-4676-b960-ebb7267a2a9a/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://c7dfbd92-27c7-4676-b960-ebb7267a2a9a/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071477228	Marionette	INFO	Stopped listening on port 50771
+1674071574363	geckodriver	INFO	Listening on 127.0.0.1:50936
+1674071577400	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileeiqBs3"
+1674071577881	Marionette	INFO	Marionette enabled
+1674071577887	Marionette	INFO	Listening on port 50951
+Read port: 50951
+1674071578108	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileeiqBs3\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://6f51aed6-459b-4973-bea6-7155c9b9b4bc/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://6f51aed6-459b-4973-bea6-7155c9b9b4bc/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071590555	Marionette	INFO	Stopped listening on port 50951
+[Parent 10488, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:746
+1674071635119	geckodriver	INFO	Listening on 127.0.0.1:51033
+1674071638174	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileiF3vTO"
+1674071638608	Marionette	INFO	Marionette enabled
+1674071638614	Marionette	INFO	Listening on port 51048
+Read port: 51048
+1674071638817	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileiF3vTO\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://42ed8593-c88a-41d8-b0f2-b41dc41472ac/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://42ed8593-c88a-41d8-b0f2-b41dc41472ac/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071645712	Marionette	INFO	Stopped listening on port 51048
+1674071713878	geckodriver	INFO	Listening on 127.0.0.1:51108
+1674071716936	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileZCkdRy"
+1674071717371	Marionette	INFO	Marionette enabled
+1674071717377	Marionette	INFO	Listening on port 51124
+Read port: 51124
+1674071717588	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileZCkdRy\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://74434d27-3bca-4eee-acf9-31c239a5650e/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://74434d27-3bca-4eee-acf9-31c239a5650e/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript error: https://s02ashm03.ferroport.com.br:8156/resources/js/webapp-7.0.1-frontend.min.js, line 1: TypeError: terminal.thread is null
+JavaScript error: https://s02ashm03.ferroport.com.br:8156/resources/js/webapp-7.0.1-frontend.min.js, line 1: TypeError: terminal.thread is null
+1674071725298	Marionette	INFO	Stopped listening on port 51124
+1674071849731	geckodriver	INFO	Listening on 127.0.0.1:51221
+1674071852773	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofile3UsngN"
+1674071853193	Marionette	INFO	Marionette enabled
+1674071853200	Marionette	INFO	Listening on port 51236
+Read port: 51236
+1674071853393	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofile3UsngN\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://342271da-979a-4356-891a-cad726da3b51/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://342271da-979a-4356-891a-cad726da3b51/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+1674071885600	geckodriver	INFO	Listening on 127.0.0.1:51383
+1674071888636	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileZPQF57"
+1674071889061	Marionette	INFO	Marionette enabled
+1674071889067	Marionette	INFO	Listening on port 51398
+Read port: 51398
+1674071889223	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\MARCUS~1.SUL\\AppData\\Local\\Temp\\rust_mozprofileZPQF57\\search.json.mozlz4", (void 0)))
+JavaScript warning: moz-extension://1cf45c7c-8e04-40e9-a286-64a32d56acc5/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript warning: moz-extension://1cf45c7c-8e04-40e9-a286-64a32d56acc5/mcafee_wa_coreengine.js, line 1706: unreachable code after return statement
+JavaScript error: https://s02ashm03.ferroport.com.br:8156/resources/js/webapp-7.0.1-frontend.min.js, line 1: TypeError: terminal.thread is null
+JavaScript error: https://s02ashm03.ferroport.com.br:8156/resources/js/webapp-7.0.1-frontend.min.js, line 1: TypeError: terminal.thread is null
+1674071991982	Marionette	INFO	Stopped listening on port 51398
