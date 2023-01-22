@@ -3,14 +3,16 @@
 #descompactar o executável no caminho de instalação dos binários do python
 #conda install selenium
 import selenium
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+#from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 import time
+from selenium import webdriver
 
-options = Options()
-options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-driver = webdriver.Firefox(options=options, executable_path=r"C:\Program Files\Mozilla Firefox\geckodriver.exe")
+driver = webdriver.Chrome()
+
+#options = Options()
+#options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+#driver = webdriver.Firefox(options=options, executable_path=r"C:\Program Files\Mozilla Firefox\geckodriver.exe")
 
 #informa endereço do smartclient web e autenticação
 link = f"https://s02ashm03.ferroport.com.br:8156/"
@@ -18,11 +20,14 @@ usuario = 'admin'
 senha = 'P@ssw0rd2126#'
 programaInicial = 'sigacfg'
 ambiente = 'FRP_P12133_TESTE'
+usuarioOrigem = '002351' #Número do usuário
+usuarioDestino = 'acesso'
+senhaDestino = 'acesso00'
 
 driver.get(link)
 time.sleep(2) 
 
-elemento=driver.find_element_by_xpath("//input[@id='inputStartProg']")
+elemento=driver.find_element_by_xpath('//*[@id="inputStartProg"]')
 elemento.click()
 elemento.clear()
 elemento.send_keys(programaInicial)
@@ -32,3 +37,48 @@ elemento.clear()
 elemento.send_keys(ambiente)
 elemento.send_keys(Keys.TAB)
 elemento=driver.find_element_by_xpath("//button[@class='button button-ok']").click()
+time.sleep(10)
+elemento=driver.find_element_by_xpath('//*[@id="COMP3014"]/input')
+elemento.send_keys(usuario)
+time.sleep(2)
+elemento.send_keys(Keys.TAB)
+elemento=driver.find_element_by_xpath('//*[@id="COMP3016"]/input')
+elemento.click()
+elemento.clear()
+elemento.send_keys(senha)
+driver.find_element_by_xpath('//*[@id="COMP3020"]/button').click()
+
+
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="COMP3036"]/button').click()
+time.sleep(10)
+driver.find_element_by_xpath('//*[@id="COMP3102"]/label').click()
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="COMP3124"]/label').click()
+time.sleep(10)
+elemento=driver.find_element_by_xpath('//*[@id="COMP6020"]/input')
+time.sleep(2)
+elemento.click()
+elemento.send_keys(usuarioOrigem)
+elemento.sent_keys(Keys.ENTER)
+elemento.sent_keys(Keys.ENTER)
+time.sleep(2)
+driver.find_element_by_xpath('//*[@id="COMP6059"]/button').click()
+time.sleep(2)
+driver.find_element_by_xpath('//*[@id="CLONE6066"]').click()
+time.sleep(2)
+elemento=driver.find_element_by_xpath('//*[@id="COMP7681"]/input')
+time.sleep(2)
+elemento.send_keys(usuarioDestino)
+time.sleep(2)
+elemento=driver.find_element_by_xpath('//*[@id="COMP7683"]/input')
+time.sleep(2)
+elemento.send_keys(senhaDestino)
+time.sleep(2)
+elemento=driver.find_element_by_xpath('//*[@id="COMP7684"]/input')
+time.sleep(2)
+elemento.send_keys(senhaDestino)
+time.sleep(2)
+driver.find_element_by_xpath('//*[@id="COMP7898"]/button').click()
+time.sleep(2)
+driver.close()
